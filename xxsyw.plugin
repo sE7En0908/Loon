@@ -1,0 +1,14 @@
+#!name= 小学生语文解锁
+#!desc= 该Loon插件用于解锁小学生语文付费解锁相关资源.
+#!author= iOS鸡神
+#!homepage= https://t.me/gjwj6
+#!icon= https://raw.githubusercontent.com/sE7En0908/Loon/master/xxsyw.png
+
+[General]
+skip-proxy = iosapps.itunes.apple.com
+
+[Script]
+http-request https://www.51haoxue.cn\/indexrun.php requires-body=1,max-size=0,script-path=https://gjds.vip/QX/pojie/xxsyw.js, tag=小学生语文解锁
+
+[MITM]
+hostname = www.51haoxue.cn
