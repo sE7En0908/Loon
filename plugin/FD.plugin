@@ -2,7 +2,7 @@
 #!desc= 樊登读书 樊登讲书+非凡精读+李蕾阅读+付费课程
 #!author= 伟人
 #!homepage= https://t.me/WeiRenOvO
-#!icon= 
+#!icon= https://raw.githubusercontent.com/sE7En0908/Loon/master/icon/fd.png
 
 [Script]
 http-request ^http[s]?:\/\/.+dushu.+(v101|v100|program\/v100)\/(content|play\/duration|index|list|userInfo|vipInfo|info|ceiltip|mainList|getMarketInfoByType|share).*$ script-path=https://raw.githubusercontent.com/WeiRen0/Scripts/main/FD.js, requires-body=true, timeout=10, tag=樊登读书
