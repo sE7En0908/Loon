@@ -6,51 +6,51 @@
 
 [Argument]
 
-# 插件总开关
-enable = switch,true,tag=插件总开关
+# 插件总开关 ⚡
+enable = switch,true,tag=插件总开关 ⚡
 
 # 功能开关
-vip = switch,true,tag=解锁会员
-ads = switch,true,tag=去广告
+vip = switch,true,tag=解锁会员 🏅
+ads = switch,true,tag=去广告 🚫
 
-# 自定义域名扩展
-host1 = input,"d2ht17eu5c0ykz.cloudfront.net",tag=CloudFront域名1
-host2 = input,"d1sn57bew5rukg.cloudfront.net",tag=CloudFront域名2
-host3 = input,"madddh5.yqsbdx.com",tag=备用API域名
-host_ext = input,"",tag=自定义扩展域名，多个用|隔开
+# 自定义域名 🌐
+host1 = input,"d2ht17eu5c0ykz.cloudfront.net",tag=CloudFront域名1 🌐
+host2 = input,"d1sn57bew5rukg.cloudfront.net",tag=CloudFront域名2 🌐
+host3 = input,"madddh5.yqsbdx.com",tag=备用API域名 🌐
+host_ext = input,"",tag=自定义扩展域名（可覆盖默认域名） 🌐
 
-# 模式选择
-mode = select,"全部功能","仅会员","仅去广告",tag=运行模式
+# 功能模式 🎚
+mode = select,"全部功能","仅会员","仅去广告",tag=运行模式 🎚
 
-# 调试开关
-debug = switch,false,tag=调试日志
+# 调试开关 🐞
+debug = switch,false,tag=调试日志 🐞
 
 [Script]
 
-# 会员接口
+# 会员接口 🏅
 http-response https://(({host1}|{host2})|{host3}|{host_ext})/api/app/user/info \
 script-path=https://raw.githubusercontent.com/chmg2025/js/refs/heads/main/mdsp.js,\
 requires-body=true,\
 timeout=60,\
-tag=会员,\
+tag=会员 🏅,\
 enable={enable},\
 argument=vip={vip}&ads={ads}&mode={mode}&debug={debug}&host1={host1}&host2={host2}&host3={host3}&host_ext={host_ext}
 
-# 视频接口
+# 视频接口 🎬
 http-response https://(({host1}|{host2})|{host3}|{host_ext})/api/app/media/play \
 script-path=https://raw.githubusercontent.com/chmg2025/js/refs/heads/main/mdsp.js,\
 requires-body=true,\
 timeout=60,\
-tag=视频,\
+tag=视频 🎬,\
 enable={enable},\
 argument=vip={vip}&ads={ads}&mode={mode}&debug={debug}&host1={host1}&host2={host2}&host3={host3}&host_ext={host_ext}
 
-# 广告接口
+# 广告接口 🚫
 http-response https://(({host1}|{host2})|{host3}|{host_ext})/(api/app/ping/config|api/app/media/v5/home) \
 script-path=https://raw.githubusercontent.com/chmg2025/js/refs/heads/main/mdsp.js,\
 requires-body=true,\
 timeout=60,\
-tag=广告,\
+tag=广告 🚫,\
 enable={enable},\
 argument=vip={vip}&ads={ads}&mode={mode}&debug={debug}&host1={host1}&host2={host2}&host3={host3}&host_ext={host_ext}
 
